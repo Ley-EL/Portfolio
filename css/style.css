@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+/* font-family: 'Lobster Two', cursive; */
+/* font-family: 'Courgette', cursive; */
+/* font-family: 'MonteCarlo', cursive; */
+/* font-family: 'Montserrat', sans-serif; */
+:root {
+  --orange : #ff6a00;
+  --red: rgb(255, 0, 0);
+  --blue: #0051ff;
+  --white: rgb(255, 255, 255);
+  --gray: gray;
+  --orangeWOpacity : #ff6a00da;
+  --blueWOpacity: #0051ff98;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* HEADER */
+
+section.top-page {
+  overflow: hidden;
+  height: 50vh;
+  background-image: url(../images/portfolio-background.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h2.name {
+  font-family: "Lobster Two", cursive;
+  font-size: 35px;
+  color: var(--orange);
+  text-align: center;
+  padding: 15px 10px;
+  margin-top: 10px;
+  animation: nameAnim 5s linear 2s infinite;
+}
+
+@keyframes nameAnim {
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+}
+
+div.occupation > p {
+  position: absolute;
+  font-family: "Courgette", cursive;
+  font-size: 25px;
+  padding: 5px 10px;
+  margin: 20px 50px;
+  animation: occupationAnim 3s linear 2 alternate;
+}
+
+p.android-dev,
+p.game-dev {
+  display: none;
+}
+
+@keyframes occupationAnim {
+  0% {
+    transform: translateX(200px);
+    color: yellow;
+  }
+  25% {
+    transform: translateX(400px);
+    color: green;
+  }
+  50% {
+    transform: translateX(600px);
+    color: purple;
+  }
+  75% {
+    transform: translateX(800px);
+    color: rgb(0, 38, 255);
+  }
+  100% {
+    transform: translateX(1000px);
+    color: var(--red);
+  }
+}
+
+/* NAV */
+
+nav i.hamburger-menu {
+  color: var(--orange);
+  font-size: 27px;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+}
+
+@keyframes hamburgerMenuAnim {
+  10% {
+    top: 100px;
+    transform: translateX(0px);
+  }
+  30% {
+    top: 232px;
+    transform: translateX(0px);
+  }
+  100% {
+    top: 232px;
+    transform: translateX(-1150px);
+    color: var(--red);
+  }
+}
+
+@keyframes closeMenuAnim {
+  0% {
+    top: 232px;
+    transform: translateX(-1150px);
+    color: var(--red);
+  }
+  50% {
+    color: var(--red);
+  }
+  70% {
+    top: 232px;
+    transform: translateX(0px);
+  }
+  100% {
+    top: 20px;
+    transform: translateX(0px);
+    color: var(--orange);
+  }
+}
+
+div.nav {
+  padding: 10px 5px;
+  margin: 120px 190px;
+}
+
+div.nav ul li a {
+  font-family: "MonteCarlo", cursive;
+  font-size: 35px;
+  color: var(--red);
+}
+
+div.nav ul li {
+  display: inline-block;
+  visibility: hidden;
+  margin: 0 50px;
+}
+
+/* PROFILE SECTION */
+
+section.container {
+  margin: 80px 375px;
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--blue);
+  border-radius: 15px;
+  transition: border-radius 1s;
+  background: linear-gradient(var(--blue), var(--white));
+  position: relative;
+}
+
+section.profile {
+  height: 42vh;
+}
+
+section.container:hover {
+  border-radius: 10% 10% 0 0;
+  box-shadow: 10px 10px 10px -4px var(--blue)
+}
+
+h3.section-title {
+  font-family: "Lobster Two", cursive;
+  font-size: 40px;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  color: var(--white);
+  letter-spacing: 0.15em;
+  text-shadow: 1px -1px 0 var(--orange), -1px 2px 1px var(--orange), -2px 4px 1px var(--orange);
+  transition: text-shadow 2s;
+}
+
+section.container:hover h3.section-title {
+  text-shadow: 1px -1px 0 var(--blue), -1px 2px 1px var(--blue), -2px 4px 1px var(--blue);
+  animation: sectionTitleAnim 5s linear 2s infinite alternate;
+}
+
+@keyframes sectionTitleAnim {
+  50% {
+    transform: skew(-5deg, 2deg);
+  }
+  100% {
+    transform: skew(5deg, -2deg);
+  }
+}
+
+div.section-desc {
+  margin: 5px 10px 10px 40px;
+  padding: 15px 5px 0px;
+  line-height: 23px;
+  color: var(--white);
+}
+
+a.section-link {
+  margin: 25px 15px 0 0;
+  padding: 10px 20px;
+  background-color: var(--orangeWOpacity);
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  width: 130px;
+  color: var(--white);
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  transition: background-color 1s;
+}
+
+section.container:hover a.section-link {
+  background-color: var(--blueWOpacity);
+}
+
+a.section-link i {
+  position: relative;
+  vertical-align: middle;
+  animation: chevronAnim 1.5s linear infinite alternate;
+}
+
+@keyframes chevronAnim {
+  0% {
+    left: 5%;
+  }
+  50% {
+    left: 0%;
+  }
+  100% {
+    left: -5%;
+  }
+}
+
+/* SKILLS SECTION */
+
+section.skills {
+  height: 42vh;
+}
+
+/* PROJECTS SECTION */
+
+section.projects {
+  height: 42vh;
+}
+
+/* FOOTER */
+
+footer {
+  background: linear-gradient(gray, var(--white));
+  padding: 20px 30px 10px;
+  text-align: center;
+  height: 100%;
+}
+
+div.contact-me {
+  margin: 0 0 40px;
+}
+
+p.contact-message {
+  font-size: 25px;
+  color: var(--white);
+}
+
+a.email {
+  display: inline-block;
+  margin: 10px 0 0;
+  padding: 10px 5px;
+  background-color: var(--gray);
+  border-radius: 10px;
+  width: 150px;
+  color: var(--white);
+  font-size: 16px;
+  transition: background-color 1s;
+}
+
+a.email:hover {
+  background-color: var(--blueWOpacity);
+}
+
+a.email i {
+  margin-left: 30px;
+}
+
+div.social-media-contacts {
+  margin: 0 0 30px;
+}
+
+div.social-media-contacts a {
+  margin: 0 15px;
+}
+
+div.social-media-contacts a i.social-media-logo {
+  color: var(--gray);
+  font-size: 25px;
+  transition: transform .5s;
+}
+
+div.social-media-contacts a i.social-media-logo:hover {
+  color: var(--blueWOpacity);
+  transform: scale(1.5);
+}
+
+footer p.copyright {
+  color: var(--gray);
+  font-size: 20px;
+  margin-bottom: 5px;
+}

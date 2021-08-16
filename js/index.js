@@ -2,11 +2,11 @@ const webDev = document.querySelector('p.web-dev');
 const androidDev = document.querySelector('p.android-dev');
 const gameDev = document.querySelector('p.game-dev');
 const hamburgerMenu = document.querySelector('nav > i');
-const home = document.querySelector('ul > li:nth-child(1)');
-const profile = document.querySelector('ul > li:nth-child(2)');
-const skills = document.querySelector('ul > li:nth-child(3)');
-const certificates = document.querySelector('ul > li:nth-child(4)');
-const projects = document.querySelector('ul > li:nth-child(5)');
+const home = document.querySelector('ul li a.home');
+const profile = document.querySelector('ul li a.profile');
+const skills = document.querySelector('ul li a.skills');
+const certificates = document.querySelector('ul li a.certificates');
+const projects = document.querySelector('ul li a.projects');
 
 webDev.addEventListener('animationend', ()=> {
     // hide web dev text

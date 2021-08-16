@@ -8,10 +8,11 @@
 /* font-family: 'Montserrat', sans-serif; */
 :root {
   --orange : #ff6a00;
-  --red: rgb(255, 0, 0);
+  --red: #ff0000;
   --blue: #0051ff;
-  --white: rgb(255, 255, 255);
+  --white: #FFFFFF;
   --gray: gray;
+  --yellow: #ffff00;
   --orangeWOpacity : #ff6a00da;
   --blueWOpacity: #0051ff98;
 }
@@ -23,11 +24,11 @@
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 li {
-  list-style-type: none;
+  list-style-type: none !important;
 }
 
 /* HEADER */
@@ -40,7 +41,7 @@ section.top-page {
   background-repeat: no-repeat;
 }
 
-h2.name {
+section.top-page h2.name {
   font-family: "Lobster Two", cursive;
   font-size: 35px;
   color: var(--orange);
@@ -73,7 +74,7 @@ p.game-dev {
 @keyframes occupationAnim {
   0% {
     transform: translateX(200px);
-    color: yellow;
+    color: var(--yellow);
   }
   25% {
     transform: translateX(400px);
@@ -144,16 +145,16 @@ div.nav {
   margin: 120px 190px;
 }
 
+div.nav ul li {
+  display: inline-block;
+  margin: 0 50px;
+}
+
 div.nav ul li a {
   font-family: "MonteCarlo", cursive;
   font-size: 35px;
   color: var(--red);
-}
-
-div.nav ul li {
-  display: inline-block;
   visibility: hidden;
-  margin: 0 50px;
 }
 
 /* PROFILE SECTION */
@@ -256,6 +257,7 @@ section.skills {
 
 section.projects {
   height: 42vh;
+  margin-bottom: 0;
 }
 
 /* FOOTER */
@@ -263,6 +265,7 @@ section.projects {
 footer {
   background: linear-gradient(gray, var(--white));
   padding: 20px 30px 10px;
+  margin-top: 100px;
   text-align: center;
   height: 100%;
 }
@@ -293,7 +296,7 @@ a.email:hover {
 }
 
 a.email i {
-  margin-left: 30px;
+  margin-left: 15px;
 }
 
 div.social-media-contacts {

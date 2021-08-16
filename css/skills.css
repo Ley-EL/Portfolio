@@ -1,0 +1,263 @@
+section.skills-container {
+  margin: 50px 100px;
+}
+
+section.skills-container h2.title {
+  font-family: "Courgette", cursive;
+  font-size: 40px;
+  background: linear-gradient(var(--gray), var(--white));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: titleAnim 8s linear infinite 2s alternate;
+}
+
+@keyframes titleAnim {
+  25% {
+    background: linear-gradient(var(--orange), var(--yellow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  50% {
+    background: linear-gradient(var(--orange), var(--white));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  75% {
+    background: linear-gradient(var(--blue), var(--yellow));
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  100% {
+    background: linear-gradient(var(--blue), var(--white));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+div.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 50px;
+  padding: 30px 25px;
+}
+
+.wrapper .card {
+  width: 20%;
+  height: 300px;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.5s;
+}
+
+.wrapper .card .circle {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  cursor: default;
+}
+
+.card .circle .box,
+.card .circle .box span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.card .circle .box {
+  height: 100%;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: all 0.5s;
+}
+
+.card .circle:hover .box {
+  transform: translate(-50%, -50%) scale(0.91);
+}
+
+.circle .box span {
+  font-size: 38px;
+  font-weight: 600;
+  transform: translate(-45%, -45%);
+  transition: all 0.3s;
+}
+
+.card .circle:hover .box span {
+  transform: translate(-45%, -45%) scale(1.1);
+}
+
+.card .circle .box span,
+.wrapper .card .text {
+  background: -webkit-linear-gradient(left, var(--orange), var(--yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card .circle:hover .box span,
+.card .circle:hover ~ .text {
+  background: -webkit-linear-gradient(var(--blue), var(--white));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card .text {
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* PROGRAMMING SKILLS */
+
+.programming-skills {
+  display: none;
+}
+
+section.programming-skills .card {
+  position: relative;
+}
+
+section.programming-skills .card .text {
+  margin-bottom: 20px;
+}
+
+section.programming-skills .card .circle:hover ~ .text {
+  background: -webkit-linear-gradient(var(--blue) 60%, var(--white));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+section.programming-skills .card .circle:hover ~ .expand i {
+  color: var(--blue);
+}
+
+i.fas.fa-plus-circle {
+  color: var(--orange);
+  transition: color .5s;
+}
+
+i.fas.fa-minus-circle {
+  color: var(--blue);
+  transition: color .5s;
+}
+
+div.expand, div.collapse {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0px 5px 3px;
+}
+
+div.collapse {
+  display: none;
+}
+
+/* PROGRAMMING SKILLS DETAILS */
+
+.container-skills-details {
+  margin: 20px 0 0 100px;
+  padding: 15px 10px;
+  display: none;
+}
+
+.second-skills-group {
+  margin-left: 20%;
+}
+
+.card .skills {
+  display: none;
+  position: relative;
+  margin-bottom: 50px;
+  width: 250px;
+}
+
+.card .skills .skills-container .skills-info {
+  display: flex;
+  position: relative;
+}
+
+.card .skills .skills-container .skills-info .skills-name {
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.9;
+  color: var(--blue);
+}
+
+.card .skills .skills-container .skills-info .skills-percentage {
+  position: absolute;
+  right: 0%;
+  font-size: 16px;
+  color: var(--blue);
+}
+
+.card .skills .skills-container .progress-bar {
+  position: relative;
+  height: 8px;
+  margin: 5px 0 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.card .skills .skills-container .percentage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 8px;
+  border-radius: 10px;
+  background: linear-gradient(var(--blue), var(--white), var(--blue));
+  transition: all 3s;
+  animation: animationProgress 3s;
+}
+
+@keyframes animationProgress {
+  from {
+    width: 0;
+  }
+}
+
+/* ANDROID DEVELOPMENT EXPAND SKILLS */
+
+.card.android-development {
+  margin: auto;
+}
+
+.card.android-development .skills {
+  margin-bottom: 80px;
+}
+
+/* GAME DEVELOPMENT EXPAND SKILLS */
+
+.card.game-development .skills {
+  margin-bottom: 80px;
+}
+
+/* OTHER SKILLS */
+section.other-skills div.wrapper {
+  justify-content: space-around;
+}
+
+.other-skills {
+  display: none;
+}
+
+/* section.other-skills .card .circle:hover ~ .text {
+  background: -webkit-linear-gradient(var(--blue), var(--white));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+} */

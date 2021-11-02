@@ -1,0 +1,172 @@
+section.profile-container {
+  margin: 50px 100px;
+}
+
+section.profile-container h2.title {
+  font-family: "Lobster Two", cursive;
+  font-size: 40px;
+  background: linear-gradient(var(--blue), var(--white));
+  background: -webkit-linear-gradient(var(--blue), var(--white));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+hr {
+  border: 1px solid var(--blue);
+}
+
+/* DESCRIPTION */
+
+section.description h2.title {
+  background: linear-gradient(var(--orange), var(--yellow));
+  background: -webkit-linear-gradient(var(--orange), var(--yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+section.description div.desc-container {
+  width: 50%;
+  min-height: 10vh;
+  max-height: 50vh;
+  margin: 30px auto 0;
+  background: linear-gradient(var(--orange) 40%, var(--yellow));
+  overflow-y: auto;
+  border: 2px solid var(--orange);
+  border-top: none;
+  border-bottom-right-radius: 3px;
+  transition: border-radius .5s;
+}
+
+section.description div.desc-container:hover {
+  border-radius: 10px;
+}
+
+section.description div.desc-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+section.description div.desc-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--gray); 
+  border-radius: 10px;
+}
+
+section.description div.desc-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--blueWOpacity);
+}
+
+div.desc-container p {
+  margin: 10px 5px 10px 20px;
+  padding: 5px 0 0 10px;
+  font-family: 'Monte Carlo', cursive;
+  font-size: 19px;
+  text-indent: 7%;
+}
+
+/* EDUCATION */
+
+section.education div.education-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 100px;
+  padding: 30px 10px;
+}
+
+div.education-categories,
+div.education-details {
+  height: 50vh;
+}
+
+div.education-categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 30%;
+  background-color: var(--white);
+  border: 2px solid var(--blue);
+  border-right: none;
+  transition: border-radius .5s;
+}
+
+div.education-categories h3 {
+  font-family: 'Monte Carlo', cursive;
+  font-size: 23px;
+}
+
+section.education div.education-container:hover div.education-categories {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+div.education-categories div.category-title {
+  padding: 15px 0 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+div.education-categories div.primary-school {
+    background: linear-gradient( var(--white), var(--blue));
+    color: var(--white);
+}
+
+div.education-categories div.secondary-school {
+    color: var(--gray);
+}
+
+div.education-details {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(var(--white), var(--blue) );
+  border-top: 2px solid var(--blue);
+  border-right: 2px solid var(--blue);
+  transition: border-radius .5s;
+}
+
+div.education-details h3 {
+  font-family: 'Courgette', cursive;
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+div.education-details p {
+  font-size: 18px;
+  color: var(--white);
+}
+
+section.education div.education-container:hover div.education-details {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+div.education-details div.category-details {
+  position: absolute;
+  width: 100%;
+  margin: 30px 0 10px;
+  padding: 15px 10px 10px;
+}
+
+div.education-details .primary-school-details {
+  display: flex;
+  justify-content: space-around;
+}
+
+div.education-details .secondary-school-details {
+  display: none;
+  justify-content: space-around;
+}
+
+div.education-details div.school-address,
+div.education-details div.school-grade {
+  margin-top: 70px;
+}
+
+div.education-details div.address-infos-container .address-info {
+  margin-bottom: 10px;
+}
+
+div.education-details .school-infos {
+  padding: 5px 40px;
+}

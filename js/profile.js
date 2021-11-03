@@ -4,24 +4,18 @@ $(document).ready(function () {
     let i = 0;
     let descContainer = document.querySelector("section.description div.desc-container");
     let txtContainer = document.querySelector("section.description p.desc-text");
-    let txt = "sum typing effect!Lorem typing effect!Lorem ipsum typing effect!Lorem" +
-    "ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum" +
-    "typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing" +
-    "effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem" +
-    "ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing" +
-    "effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem" +
-    "ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing" +
-    "effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem" +
-    "ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing" +
-    "effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!"
-    "ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing" +
-    "effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!"
-    "ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing" +
-    "effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!Lorem ipsum typing effect!";
+    let txt = 'My name is Kendley Borno. I am a senior high school student at the Institution Saint Louis de Gonzague, located in Haiti. ' +
+    "I am passionate about computer programming. When I was a toddle, the computer world had always intrigued me. Two years ago, I began to explore the computer science world and I have been impressed by all the things that I have discovered. Day by day I continue to learn more and more across the different areas within the CS field. " + 
+    "As you can see in the Skills section, during these two years I have learned a lot of things and I keep learning because I am very interested in the Computer Science field, and because it is my favorite hobby. Thus, as you certainly guess, Computer Science is my intented major for college. " +
+    "My days are not just about programming. My second favorite hobby is: watching movies and series. It is an activity that brings me joy in my daily life and also help me growth. Therefore, this activity is meaningful for me. " + 
+    "Then, I am also passionate about playing chess. I started learning few years ago and sometimes I keep practicing to improve my skills. " + 
+    "Finally, this year I started to learn to play the piano because for many years it has been an instrument that I have always wanted to play. " + 
+    "About some of the good qualities and strengths that I have, I am altruist and helpful, and I like to devote myself to the community I am in. I am a hard and thoughful worker with a genuine guise of responsibility.";
     let speed = 25;
     
     function ShowText() {
         if (i < txt.length) {
+
             // show character
             txtContainer.innerHTML += txt.charAt(i)
 
@@ -80,28 +74,5 @@ $(document).ready(function () {
 
     SwitchCategory("div.primary-school", ".secondary-school-details", ".primary-school-details", "div.secondary-school");
     SwitchCategory("div.secondary-school", ".primary-school-details", ".secondary-school-details", "div.primary-school");
-
-    // let characters = $("section.education h2").text().length;
-    // let text = $("section.education h2").text();
-    // console.log(characters)
-
-    // for (let i = 0; i <= characters; i++) {
-    //     console.log(text.charAt(i))
-        
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })

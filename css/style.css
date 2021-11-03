@@ -4,13 +4,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
 
 :root {
-  --orange : #ff6a00;
+  --orange: #ff6a00;
   --red: #ff0000;
   --blue: #0051ff;
-  --white: #FFFFFF;
+  --white: #ffffff;
   --gray: gray;
   --yellow: #ffff00;
-  --orangeWOpacity : #ff6a00da;
+  --orangeWOpacity: #ff6a00da;
   --blueWOpacity: #0051ff98;
 }
 
@@ -113,7 +113,7 @@ nav i.hamburger-menu {
   }
   100% {
     top: 232px;
-    transform: translateX(-1150px);
+    transform: translateX(-1050px);
     color: var(--red);
   }
 }
@@ -121,7 +121,7 @@ nav i.hamburger-menu {
 @keyframes closeMenuAnim {
   0% {
     top: 232px;
-    transform: translateX(-1150px);
+    transform: translateX(-1050px);
     color: var(--red);
   }
   50% {
@@ -140,7 +140,7 @@ nav i.hamburger-menu {
 
 div.nav {
   padding: 10px 5px;
-  margin: 120px 190px;
+  margin: 120px 200px 120px 300px;
 }
 
 div.nav ul li {
@@ -173,7 +173,7 @@ section.profile {
 
 section.container:hover {
   border-radius: 10% 10% 0 0;
-  box-shadow: 10px 10px 10px -4px var(--blue)
+  box-shadow: 10px 10px 10px -4px var(--blue);
 }
 
 h3.section-title {
@@ -183,12 +183,14 @@ h3.section-title {
   text-rendering: optimizeLegibility;
   color: var(--white);
   letter-spacing: 0.15em;
-  text-shadow: 1px -1px 0 var(--orange), -1px 2px 1px var(--orange), -2px 4px 1px var(--orange);
+  text-shadow: 1px -1px 0 var(--orange), -1px 2px 1px var(--orange),
+    -2px 4px 1px var(--orange);
   transition: text-shadow 2s;
 }
 
 section.container:hover h3.section-title {
-  text-shadow: 1px -1px 0 var(--blue), -1px 2px 1px var(--blue), -2px 4px 1px var(--blue);
+  text-shadow: 1px -1px 0 var(--blue), -1px 2px 1px var(--blue),
+    -2px 4px 1px var(--blue);
   animation: sectionTitleAnim 5s linear 2s infinite alternate;
 }
 
@@ -223,6 +225,12 @@ a.section-link {
   transition: background-color 1s;
 }
 
+section.certificates a.section-link {
+  width: 150px;
+  margin: 25px 15px 0 0;
+  padding: 10px 20px;
+}
+
 section.container:hover a.section-link {
   background-color: var(--blueWOpacity);
 }
@@ -251,9 +259,9 @@ section.skills {
   height: 42vh;
 }
 
-/* PROJECTS SECTION */
+/* CERTIFICATES SECTION */
 
-section.projects {
+section.certificates {
   height: 42vh;
   margin-bottom: 0;
 }
@@ -308,7 +316,7 @@ div.social-media-contacts a {
 div.social-media-contacts a i.social-media-logo {
   color: var(--gray);
   font-size: 25px;
-  transition: transform .5s;
+  transition: transform 0.5s;
 }
 
 div.social-media-contacts a i.social-media-logo:hover {

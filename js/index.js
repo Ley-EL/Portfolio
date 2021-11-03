@@ -1,14 +1,14 @@
 const webDev = document.querySelector('p.web-dev');
 const androidDev = document.querySelector('p.android-dev');
 const gameDev = document.querySelector('p.game-dev');
-const hamburgerMenu = document.querySelector('nav > i');
+const hamburgerMenu = document.querySelector('nav > i.fas.fa-bars');
 const home = document.querySelector('ul li a.home');
 const profile = document.querySelector('ul li a.profile');
 const skills = document.querySelector('ul li a.skills');
 const certificates = document.querySelector('ul li a.certificates');
-const projects = document.querySelector('ul li a.projects');
+// const projects = document.querySelector('ul li a.projects');
 
-webDev.addEventListener('animationend', ()=> {
+webDev.addEventListener('animationend', () => {
     // hide web dev text
     webDev.style.display = "none"
 
@@ -38,9 +38,9 @@ function MenuEventClick() {
         hamburgerMenu.style.animation = "hamburgerMenuAnim 5s linear";
         hamburgerMenu.style.animationFillMode = "forwards"
         var showMenuInterval = setInterval(ShowMenu, 100);
+        MenuAnimationEnd(showMenuInterval);
     })
 
-    MenuAnimationEnd();
 }
 
 function CloseMenuEventClick(closeMenu) {
@@ -49,33 +49,35 @@ function CloseMenuEventClick(closeMenu) {
         hamburgerMenu.style.animation = "closeMenuAnim 5s linear";
         hamburgerMenu.style.animationFillMode = "forwards"
         var hideMenuInterval = setInterval(HideMenu, 100);
+
+        CloseMenuAnimationEnd(closeMenu, hideMenuInterval);
     })
 }
 
-function CloseMenuAnimationEnd(closeMenu) {
+function CloseMenuAnimationEnd(closeMenu, hideMenuInterval) {
     closeMenu.addEventListener("animationend", () => {
         // change close icon to menu icon
         hamburgerMenu.classList.remove("fa-times");
         hamburgerMenu.classList.add("fa-bars");
 
+        clearInterval(hideMenuInterval);
+
         MenuEventClick();
-        
     })
 }
 
-function MenuAnimationEnd() {
+function MenuAnimationEnd(showMenuInterval) {
     hamburgerMenu.addEventListener("animationend", () => {
         // change menu icon to close icon
         hamburgerMenu.classList.remove("fa-bars");
         hamburgerMenu.classList.add("fa-times");
-    
+
+        clearInterval(showMenuInterval);
+
         // get new icon class name
         var closeMenu = document.querySelector('i.fa-times');
-        
+
         CloseMenuEventClick(closeMenu);
-        CloseMenuAnimationEnd(closeMenu);
-        console.log("Finish")
-        
     })
 }
 
@@ -86,31 +88,26 @@ const homePos = home.getBoundingClientRect();
 const profilePos = profile.getBoundingClientRect();
 const skillsPos = skills.getBoundingClientRect();
 const certificatesPos = certificates.getBoundingClientRect();
-const projectsPos = projects.getBoundingClientRect();
 
-function ShowMenu () {
+function ShowMenu() {
     // get current icon menu position
     var menuPos = hamburgerMenu.getBoundingClientRect();
-    
+
     // show menu items
-    if(menuPos.left < homePos.left - 5) {
+    if (menuPos.left < homePos.left - 5) {
         home.style.visibility = "visible"
     }
 
-    if(menuPos.left < profilePos.left - 5) {
+    if (menuPos.left < profilePos.left - 5) {
         profile.style.visibility = "visible"
-    } 
+    }
 
-    if(menuPos.left < skillsPos.left - 5) {
+    if (menuPos.left < skillsPos.left - 5) {
         skills.style.visibility = "visible"
     }
-    
-    if(menuPos.left < certificatesPos.left - 5) {
+
+    if (menuPos.left < certificatesPos.left - 5) {
         certificates.style.visibility = "visible"
-    }
-    
-    if(menuPos.left < projectsPos.left - 5) {
-        projects.style.visibility = "visible"
     }
 }
 
@@ -119,24 +116,20 @@ function HideMenu() {
     var menuPos = hamburgerMenu.getBoundingClientRect();
 
     // hide menu items
-    if(menuPos.right > homePos.right + 5) {
+    if (menuPos.right > homePos.right + 5) {
         home.style.visibility = "hidden"
     }
 
-    if(menuPos.right > profilePos.right + 5) {
+    if (menuPos.right > profilePos.right + 5) {
         profile.style.visibility = "hidden"
     }
-    
-    if(menuPos.right > skillsPos.right + 5) {
+
+    if (menuPos.right > skillsPos.right + 5) {
         skills.style.visibility = "hidden"
     }
-    
-    if(menuPos.right > certificatesPos.right + 5) {
+
+    if (menuPos.right > certificatesPos.right + 5) {
         certificates.style.visibility = "hidden"
     }
-    
-    if(menuPos.left > projectsPos.right + 5) {
-        projects.style.visibility = "hidden"
-    } 
 }
 

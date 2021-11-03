@@ -1,0 +1,139 @@
+:root {
+  --orange: #ff6a00;
+  --red: #ff0000;
+  --blue: #0051ff;
+  --white: #ffffff;
+  --gray: gray;
+  --yellow: #ffff00;
+  --orangeWOpacity: #ff6a00da;
+  --blueWOpacity: #0051ff98;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+section.certificates-container {
+  margin: 50px 100px;
+}
+
+section.certificates-container h2.title {
+  font-family: "Courgette", cursive;
+  font-size: 40px;
+  background: linear-gradient(var(--blue) 25%, var(--white));
+  background: -webkit-linear-gradient(var(--blue) 25%, var(--white));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+div.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 50px;
+  padding: 30px 25px;
+}
+
+.wrapper .card {
+  width: 20%;
+  height: 300px;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.5s;
+}
+
+.wrapper .card .text {
+  background: -webkit-linear-gradient(left, var(--orange), var(--yellow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card .text {
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 35px;
+}
+
+.card:hover .text {
+  background: -webkit-linear-gradient(var(--blue) 25%, var(--white));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Academic container style */
+.wrapper .card.academic {
+  background-image: url(../images/academicImg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Freecodecamp container style */
+.wrapper .card.freecodecamp {
+  background-image: url(../images/freecodecampLogo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* SoloLearn container style */
+.wrapper .card.sololearn {
+  background-image: url(../images/sololearnLogo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Section Top Page, Styles for container pages */
+
+section.top-page div.header-container {
+  width: 80%;
+  margin: auto;
+  background: linear-gradient(var(--blue), var(--white));
+  background: -webkit-linear-gradient(var(--blue), var(--white));
+  border: 1px solid var(--blueWOpacity);
+  border-top: none;
+}
+
+section.top-page div.header-container div.header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px;
+  padding: 10px 20px;
+}
+
+section.top-page div.header-container div.header-content a i {
+  font-size: 25px;
+  margin-right: 20px;
+  color: var(--blue);
+}
+
+section.top-page div.header-container div.header-content a p.header-text {
+  font-size: 30px;
+  color: var(--blue);
+}
+
+/* Section Certificates, styles for container pages  */
+section.certificates-container div.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section.certificates-container div.container div.img-box {
+    flex: 1 1 400px;
+}
+
+section.certificates-container div.container div.img-box img {
+    width: 75%;
+    margin: 0 15% 30px;
+}

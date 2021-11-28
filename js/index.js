@@ -6,7 +6,9 @@ const home = document.querySelector('ul li a.home');
 const profile = document.querySelector('ul li a.profile');
 const skills = document.querySelector('ul li a.skills');
 const certificates = document.querySelector('ul li a.certificates');
-// const projects = document.querySelector('ul li a.projects');
+const headerContainer = document.querySelector('section.top-page div.brief-presentation');
+const navContainer = document.querySelector('div.nav')
+const mediaQuery = window.matchMedia('(max-width: 550px');
 
 webDev.addEventListener('animationend', () => {
     // hide web dev text
@@ -32,56 +34,79 @@ gameDev.addEventListener('animationend', () => {
     webDev.style.display = "block"
 })
 
-function MenuEventClick() {
-    // add icon menu an animation on click
-    hamburgerMenu.addEventListener('click', () => {
+// add icon menu an animation on click
+hamburgerMenu.addEventListener('click', () => {
+    // if the icon is the hmaburger menu icon
+    if (hamburgerMenu.classList.contains("fa-bars")) {
+
+        // add animation to it
         hamburgerMenu.style.animation = "hamburgerMenuAnim 5s linear";
         hamburgerMenu.style.animationFillMode = "forwards"
-        var showMenuInterval = setInterval(ShowMenu, 100);
-        MenuAnimationEnd(showMenuInterval);
-    })
 
-}
+        // if we are on mobile
+        if (mediaQuery.matches) {
 
-function CloseMenuEventClick(closeMenu) {
-    // add animation for close menu on click
-    closeMenu.addEventListener('click', () => {
+            // change menu icon animation duration
+            hamburgerMenu.style.animationDuration = "3s";
+
+            // disable header container
+            headerContainer.style.display = "none";
+
+            // enable the nav container
+            navContainer.style.display = "block"
+
+            ShowMenu();
+        }
+        else {
+            var showMenuInterval = setInterval(ShowMenu, 100);
+        }
+
+    } // if the icon is the close icon
+    else if (hamburgerMenu.classList.contains("fa-times")) {
+        // add animation to it
         hamburgerMenu.style.animation = "closeMenuAnim 5s linear";
         hamburgerMenu.style.animationFillMode = "forwards"
-        var hideMenuInterval = setInterval(HideMenu, 100);
+        
+        // if we are on mobile
+        if (mediaQuery.matches) {
 
-        CloseMenuAnimationEnd(closeMenu, hideMenuInterval);
-    })
-}
+            // change menu icon animation duration
+            hamburgerMenu.style.animationDuration = "3s";
 
-function CloseMenuAnimationEnd(closeMenu, hideMenuInterval) {
-    closeMenu.addEventListener("animationend", () => {
-        // change close icon to menu icon
-        hamburgerMenu.classList.remove("fa-times");
-        hamburgerMenu.classList.add("fa-bars");
+            HideMenu();
+        } 
+        else {
+            var hideMenuInterval = setInterval(HideMenu, 100);
+        }
+    }
+})
 
-        clearInterval(hideMenuInterval);
+// check when animation on the icon menu is done
+hamburgerMenu.addEventListener("animationend", () => {
+    // if the icon is the hamburger menu icon
+    if (hamburgerMenu.classList.contains("fa-bars")) {
 
-        MenuEventClick();
-    })
-}
-
-function MenuAnimationEnd(showMenuInterval) {
-    hamburgerMenu.addEventListener("animationend", () => {
-        // change menu icon to close icon
+        // change hamburger menu icon to close icon
         hamburgerMenu.classList.remove("fa-bars");
         hamburgerMenu.classList.add("fa-times");
+        
+    } // if the icon is the close icon
+    else if (hamburgerMenu.classList.contains("fa-times")) {
 
-        clearInterval(showMenuInterval);
+        // change close icon to hamburger menu icon
+        hamburgerMenu.classList.remove("fa-times");
+        hamburgerMenu.classList.add("fa-bars");
+        
+        // if we are on mobile
+        if (mediaQuery.matches) {
+            // enable header container
+            headerContainer.style.display = "block"
 
-        // get new icon class name
-        var closeMenu = document.querySelector('i.fa-times');
-
-        CloseMenuEventClick(closeMenu);
-    })
-}
-
-MenuEventClick();
+            // disable the nav container
+            navContainer.style.display = "none"
+        }
+    }
+})
 
 // retrieve nav item position
 const homePos = home.getBoundingClientRect();
@@ -130,6 +155,48 @@ function HideMenu() {
 
     if (menuPos.right > certificatesPos.right + 5) {
         certificates.style.visibility = "hidden"
+    }
+}
+
+// Responsive Design
+
+if (mediaQuery.matches) {
+
+    function ShowMenu() {
+        setTimeout(() => {
+            // make profile visible
+            profile.style.visibility = "visible";
+            // make skills visible
+            skills.style.visibility = "visible"
+        }, 1000);
+
+        setTimeout(() => {
+            // make certificates visible
+            certificates.style.visibility = "visible"
+            // make home visible
+            home.style.visibility = "visible";
+        }, 2000);
+
+
+    }
+
+    function HideMenu() {
+        setTimeout(() => {
+            // make home hidden
+            home.style.visibility = "hidden";
+
+            // make certificates hidden
+            certificates.style.visibility = "hidden"
+        }, 1000);
+
+        setTimeout(() => {
+            // make profile hidden
+            profile.style.visibility = "hidden";
+            // make skills hidden
+            skills.style.visibility = "hidden"
+
+        }, 2000);
+
     }
 }
 

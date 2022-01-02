@@ -9,12 +9,15 @@
     --blueWOpacity: #0051ff98;
 }
 
+a {
+    text-decoration: none;
+}
+
 section.certificates-container {
     margin: 50px 100px;
 }
 
 section.certificates-container a {
-    text-decoration: none;
     color: black;
 }
 
@@ -300,6 +303,10 @@ section.certificates-container div.container div.img-box img {
 
     .wrapper .card.academic .text {
         margin-bottom: 15px;
+    }
+
+    .wrapper .card .text {
+        font-size: 20px;
     }
 }
 

@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    // initialize circle animation progress
     let options = {
         startAngle: -1.55,
         value: 0.85,
@@ -27,7 +28,7 @@ $(document).ready(function () {
     PercentageSkills(".french", 1);
     PercentageSkills(".english", 0.80);
     PercentageSkills(".web-development", 0.80);
-    PercentageSkills(".android-development", 0.90);
+    PercentageSkills(".android-development", 0.60);
     PercentageSkills(".game-development", 0.60);
     PercentageSkills(".chess", 0.50);
     PercentageSkills(".piano", 0.15);
@@ -35,15 +36,18 @@ $(document).ready(function () {
     // change card box shadow when hover it
     $('.card').hover(function () {
         $(this).css('box-shadow', '0px 0px 15px 1px #ff6a00, 0px 0px 15px 1px #ffff00');
+        console.log("Hover on card only")
     },
         function () {
             $(this).css('box-shadow', '0px 10px 15px rgba(0, 0, 0, 0.25)');
+            console.log("Hover off on card only")
         })
 
     // change element card box shadow when hover the circle
     function CircleHover(mainElement) {
         $(mainElement + " .circle").hover(function () {
-            $(mainElement).css('box-shadow', '0px 0px 15px 1px #0051ff, 0px 0px 15px 1px #ffff');
+            $(mainElement).css('box-shadow', '0px 0px 15px 1px #0051ff, 0px 0px 15px 1px #ffff', 'important');
+            console.log("Hover on circle that affect card")
             $(mainElement + " .bar").circleProgress({
                 fill: {
                     gradient: ['#0051ff98']
@@ -52,6 +56,7 @@ $(document).ready(function () {
         },
             function () {
                 $(mainElement).css('box-shadow', '0px 0px 15px 1px #ff6a00, 0px 0px 15px 1px #ffff00');
+                console.log("Hover off on circle that affect card")
                 $(mainElement + " .bar").circleProgress({
                     fill: {
                         gradient: ['#ff6a00', "#ffff00"]
@@ -69,33 +74,12 @@ $(document).ready(function () {
     CircleHover(".chess")
     CircleHover(".piano")
 
-    // show skills section when scrolling
-    $(document).scroll(function () {
-
-        // get scroll value
-        var y = $(this).scrollTop();
-
-        // show programming skills section when scroll value is greater than 250
-        if (y > 250) {
-            $('.programming-skills').fadeIn(2000);
-        }else {
-            $('.programming-skills').fadeOut();
-        }
-
-        // show other skills section when scroll value is greater than 600
-        if (y > 600) {
-            $('.other-skills').fadeIn(2000);
-        }else {
-            $('.other-skills').fadeOut();
-        }
-    });
-
     function ExpandSkillsDetails(mainElement, cardWidthValue, textTranslateValue, showMinusIconTime) {
         // remove events on this element
         $(mainElement).off();
 
         // add transition to some elements
-        $(mainElement + ' .text').css("transition", "transform 2s");
+        $(mainElement + ' .text').css("transition", "transform 2s, font-size 2s");
         $(mainElement).css("transition", "width 1.5s, box-shadow 2s");
 
         // hide plus icon
@@ -252,11 +236,13 @@ $(document).ready(function () {
             $('.card.web-development div.expand i').fadeIn(2000);
         }, 6500);
 
-        // remove box shadow from this card and show other cards
+        // remove box shadow from this card, show other cards and remove their style
         setTimeout(() => {
             $('.card.web-development').css("box-shadow", "");
             $('.android-development').fadeIn(1000);
+            $('.android-development').attr("style", "");
             $('.game-development').fadeIn(1500);
+            $('.game-development').attr("style", "");
         }, 7500);
 
         setTimeout(() => {
@@ -349,11 +335,13 @@ $(document).ready(function () {
             $('.card.android-development div.expand i').fadeIn(2000);
         }, 4500);
 
-        // remove box shadow from this card and show other cards
+        // remove box shadow from this card, show other cards and remove their style
         setTimeout(() => {
             $('.card.android-development').css("box-shadow", "");
             $('.game-development').fadeIn(1000);
+            $('.game-development').attr("style", "");
             $('.web-development').fadeIn(1500);
+            $('.web-development').attr("style", "");
         }, 5500);
 
         setTimeout(() => {
@@ -377,37 +365,8 @@ $(document).ready(function () {
 
         ExpandSkillsDetails(".card.game-development", "50%", "-115px", "7500");
 
-        // hide other cards
-        var webDevOpacity = 1;
-        var androidDevOpacity = 1;
-
-        var webDevInterval = setInterval(() => {
-            // decrease opacity
-            webDevOpacity -= 0.1;
-
-            $('.card.web-development').css("opacity", webDevOpacity)
-
-            // clear interval and hidden web dev card when opacity is less than or equal to 0
-            if (webDevOpacity <= 0) {
-                clearInterval(webDevInterval)
-                $('.card.web-development').css("visibility", "hidden");
-            }
-        }, 100);
-
-        setTimeout(() => {
-            var androidDevInterval = setInterval(() => {
-                // decrease opacity
-                androidDevOpacity -= 0.1;
-
-                $('.card.android-development').css("opacity", androidDevOpacity)
-
-                // clear interval and hidden android dev card when opacity is less than or equal to 0
-                if (androidDevOpacity <= 0) {
-                    clearInterval(androidDevInterval)
-                    $('.card.android-development').css("visibility", "hidden");
-                }
-            }, 100);
-        }, 350);
+        $('.card.web-development').fadeOut(1000);
+        $('.card.android-development').fadeOut(1000)
 
         // change container skills details from display none to display block
         setTimeout(() => {
@@ -467,67 +426,32 @@ $(document).ready(function () {
         setTimeout(() => {
             $('.card.game-development').css({
                 "align-items": "",
-                "justify-content": "",
+                "justify-content": ""
             });
             $('.card.game-development .text').css("margin", "");
             $('.card.game-development .circle').fadeIn(1000);
             $('.card.game-development div.expand i').fadeIn(2000);
         }, 4500);
 
-        // remove box shadow from this card
+        // remove this card's box shadow, show other cards and remove their style
         setTimeout(() => {
+            // remove box shadow from this card
             $('.card.game-development').css("box-shadow", "");
-        }, 5500);
 
-        // show other cards
-        var webDevOpacity = 0;
-        var androidDevOpacity = 0;
+            // show android development card
+            $('.card.android-development').fadeIn(1000);
 
-        setTimeout(() => {
-            var androidDevInterval = setInterval(() => {
-                // remove visibility hidden
-                $('.card.android-development').css("visibility", "");
+            // remove style from android card
+            $('.card.android-development').attr("style", "");
 
-                // increase opacity
-                androidDevOpacity += 0.1;
+            // show web development card
+            $('.card.web-development').fadeIn(1500);
 
-                // add opacity to android dev card
-                $('.card.android-development').css("opacity", androidDevOpacity)
-
-                // clear interval when opacity is more than or equal to 0
-                if (androidDevOpacity >= 1) {
-                    clearInterval(androidDevInterval)
-
-                    // remove style from android card
-                    $('.card.android-development').attr("style", "");
-                }
-            }, 100);
+            // remove style from web dev card
+            $('.card.web-development').attr("style", "");
         }, 5500);
 
         setTimeout(() => {
-            var webDevInterval = setInterval(() => {
-                // remove visibility hidden
-                $('.card.web-development').css("visibility", "");
-
-                // increase opacity
-                webDevOpacity += 0.1;
-
-                // add opacity to web dev card
-                $('.card.web-development').css("opacity", webDevOpacity);
-
-                // clear interval when opacity is more than or equal to 0
-                if (webDevOpacity >= 1) {
-                    clearInterval(webDevInterval)
-
-                    // remove style from web dev card
-                    $('.card.web-development').attr("style", "");
-                }
-            }, 100);
-        }, 5700);
-
-        setTimeout(() => {
-            // remove opacity attribute from other cards
-
             // add hover event on this card
             $('.card.game-development').hover(function () {
                 $(this).css('box-shadow', '0px 0px 15px 1px #ff6a00, 0px 0px 15px 1px #ffff00');
@@ -542,4 +466,319 @@ $(document).ready(function () {
 
         }, 6000);
     })
+
+    // Responsive
+    const mediaQuery1024min = window.matchMedia('(min-width: 1024px)');
+    const mediaQuery1024 = window.matchMedia('(max-width: 1024px)');
+    const mediaQuery800 = window.matchMedia('(max-width: 800px)');
+    const mediaQuery740 = window.matchMedia('(max-width: 740px) and (orientation: landscape)');
+    const mediaQuery600 = window.matchMedia('(max-width: 600px)');
+    const mediaQuery570 = window.matchMedia('(max-width: 570px) and (orientation: landscape)');
+    const mediaQuery550 = window.matchMedia('(max-width: 550px)');
+    const mediaQuery425 = window.matchMedia('(max-width: 425px)');
+    const mediaQuery385 = window.matchMedia('(max-width: 385px)');
+    const mediaQuery330 = window.matchMedia('(max-width: 330px)');
+
+    if (mediaQuery1024min.matches) {
+        // handle animation when click on game dev plus icon
+        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
+
+            // set game development card margin left to auto
+            setTimeout(() => {
+                $('.card.game-development').css("margin-left", "auto")
+            }, 1000);
+        })
+
+        // handle animation when click on game dev minus icon
+        $('.game-development .collapse i.fas.fa-minus-circle').click(function () {
+
+            setTimeout(() => {
+                // remove margin-left from this card
+                $('.card.game-development').css("margin-left", "");
+            }, 5500);
+        })
+    }
+
+    if (mediaQuery1024.matches) {
+        // handle animation when click on web dev plus icon
+        $('.web-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.web-development", "100%", "-215px", "9500");
+        })
+
+        // handle animation when click on android dev plus icon
+        $('.android-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.android-development", "60%", "-60px", "7500");
+        })
+
+        // handle animation when click on game dev plus icon
+        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.game-development", "60%", "-70px", "7500");
+        })
+
+    }
+
+    if (mediaQuery800.matches) {
+        // handle animation when click on web dev plus icon
+        $('.web-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.web-development", "100%", "-100px", "9500");
+
+        })
+
+        // handle animation when click on android dev plus icon
+        $('.android-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.android-development", "85%", "-40px", "7500");
+        })
+
+        // handle animation when click on game dev plus icon
+        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.game-development", "85%", "-55px", "7500")
+        })
+
+    }
+
+    if (mediaQuery740.matches) {
+
+        // handle animation when click on web dev plus icon
+        $('.web-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.web-development", "100%", "-80px", "9500");
+        })
+
+        // handle animation when click on android dev plus icon
+        $('.android-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.android-development", "90%", "-35px", "7500");
+        })
+
+        // handle animation when click on game dev plus icon
+        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.game-development", "90%", "-50px", "7500")
+        })
+    }
+
+    if (mediaQuery600.matches) {
+
+        // handle animation when click on web dev plus icon
+        $('.web-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.web-development", "100%", "-80px", "9500");
+        })
+
+        // handle animation when click on android dev plus icon
+        $('.android-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.android-development", "90%", "-35px", "7500");
+        })
+
+        // handle animation when click on game dev plus icon
+        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.game-development", "90%", "-50px", "7500")
+        })
+    }
+
+    if (mediaQuery570.matches) {
+
+        // handle animation when click on web dev plus icon
+        $('.web-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.web-development", "100%", "-70px", "9500");
+        })
+
+        // handle animation when click on android dev plus icon
+        $('.android-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.android-development", "90%", "-30px", "7500");
+        })
+
+        // handle animation when click on game dev plus icon
+        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.game-development", "90%", "-45px", "7500")
+        })
+    }
+
+    if (mediaQuery550.matches) {
+
+        // handle animation when click on web dev plus icon
+        $('.web-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.web-development", "100%", "-50px", "9500");
+        })
+
+        // handle animation when click on android dev plus icon
+        $('.android-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.android-development", "100%", "-30px", "7500");
+        })
+
+        // handle animation when click on game dev plus icon
+        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.game-development", "100%", "-45px", "7500")
+        })
+    }
+
+    if (mediaQuery425.matches) {
+
+        function AddWrapperMarginTransition() {
+
+            // add transition to wrapper
+            $('.programming-skills div.wrapper').css("transition", "margin 2s");
+
+            // reduce margin left and right of the wrapper
+            setTimeout(() => {
+                $('.programming-skills div.wrapper').css("margin", "10px 15px");
+            }, 2500);
+        }
+
+        function RemoveWrapperMarginTransition(rmMarginTime, rmTransitionTime) {
+
+            // remove margin set earlier to the wrapper
+            setTimeout(function () {
+                $('.programming-skills div.wrapper').css("margin", "");
+            }, rmMarginTime);
+
+            // remove wrapper's transition
+            setTimeout(() => {
+                $('.programming-skills div.wrapper').css("transition", "");
+            }, rmTransitionTime);
+        }
+
+        // handle animation when click on web dev plus icon
+        $('.web-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.web-development", "100%", "-25px", "9500");
+
+            AddWrapperMarginTransition();
+        })
+
+        // handle animation when click on web dev minus icon
+        $('.web-development .collapse i.fas.fa-minus-circle').click(function () {
+
+            RemoveWrapperMarginTransition(6000, 8000);
+        })
+
+        // handle animation when click on android dev plus icon
+        $('.android-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.android-development", "100%", "-10px", "7500");
+
+            AddWrapperMarginTransition();
+        })
+
+        // handle animation when click on android dev minus icon
+        $('.android-development .collapse i.fas.fa-minus-circle').click(function () {
+
+            RemoveWrapperMarginTransition(4000, 6000);
+        })
+
+        // handle animation when click on game dev plus icon
+        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.game-development", "100%", "-15px", "7500");
+
+            AddWrapperMarginTransition();
+        })
+
+        // handle animation when click on game dev minus icon
+        $('.game-development .collapse i.fas.fa-minus-circle').click(function () {
+
+            RemoveWrapperMarginTransition(4000, 6000);
+        })
+    }
+
+    if (mediaQuery385.matches) {
+
+        function ModifTextSize(textSize) {
+            setTimeout(() => {
+                $('.programming-skills div.wrapper div.card div.text').css("font-size", textSize);
+            }, 2000);
+        }
+
+        function RemoveTextSize(rmTextSizeTime) {
+            setTimeout(() => {
+                $('.programming-skills div.wrapper div.card div.text').css("font-size", "");
+            }, rmTextSizeTime);
+        }
+
+        // handle animation when click on web dev plus icon
+        $('.web-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.web-development", "100%", "-25px", "9500");
+
+            ModifTextSize("20px");
+        })
+
+        // handle animation when click on web dev minus icon
+        $('.web-development .collapse i.fas.fa-minus-circle').click(function () {
+
+            RemoveTextSize(5500);
+        })
+
+        // handle animation when click on android dev plus icon
+        $('.android-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.android-development", "100%", "-10px", "7500");
+
+            ModifTextSize("20px");
+        })
+
+        // handle animation when click on android dev minus icon
+        $('.android-development .collapse i.fas.fa-minus-circle').click(function () {
+
+            RemoveTextSize(3500);
+        })
+
+        // handle animation when click on game dev plus icon
+        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.game-development", "100%", "-15px", "7500");
+
+            ModifTextSize("20px");
+        })
+
+        // handle animation when click on game dev minus icon
+        $('.game-development .collapse i.fas.fa-minus-circle').click(function () {
+
+            RemoveTextSize(3500);
+        })
+    }
+
+    if (mediaQuery330.matches) {
+
+        // handle animation when click on web dev plus icon
+        $('.web-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.web-development", "100%", "-15px", "9500");
+
+            ModifTextSize("20px");
+        })
+
+        // handle animation when click on android dev plus icon
+        $('.android-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.android-development", "100%", "-10px", "7500");
+
+            ModifTextSize("22px");
+        })
+
+        // handle animation when click on game dev plus icon
+        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
+
+            ExpandSkillsDetails(".card.game-development", "100%", "-15px", "7500");
+
+            ModifTextSize("22px");
+        })
+    }
+
+
+
 })

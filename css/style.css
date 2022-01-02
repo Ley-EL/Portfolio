@@ -37,14 +37,15 @@
         background-repeat: no-repeat;
     }
 
-    section.top-page h2.name {
+    section.top-page h2.name a {
+        display: block;
         font-family: "Lobster Two", cursive;
         font-size: 35px;
         color: var(--orange);
         text-align: center;
         padding: 15px 10px;
         margin-top: 10px;
-        animation: nameAnim 5s linear 2s infinite;
+        animation: nameAnim 5s linear .5s infinite;
     }
 
     @keyframes nameAnim {
@@ -291,8 +292,13 @@
         margin-left: 15px;
     }
 
+    p.resume {
+        font-size: 20px;
+        color: var(--white);
+    }
+
     div.social-media-contacts {
-        margin: 0 0 30px;
+        margin: 30px 0;
     }
 
     div.social-media-contacts a {
@@ -787,7 +793,7 @@
         }
         div.occupation {
             padding: 5px 10px;
-            margin: 15px 30px 40px;
+            margin: 25px 30px 60px;
         }
         /* Occupation */
         @keyframes occupationAnim {
@@ -860,7 +866,7 @@
         }
         /* FOOTER */
         footer p.copyright {
-            font-size: 18px;
+            font-size: 17px;
         }
     }
 
@@ -964,10 +970,13 @@
         }
         /* FOOTER */
         p.contact-message {
-            font-size: 20px;
+            font-size: 19px;
+        }
+        p.resume {
+            font-size: 17px;
         }
         footer p.copyright {
-            font-size: 17px;
+            font-size: 16px;
         }
     }
 
@@ -1025,8 +1034,5 @@
         }
         p.contact-message {
             font-size: 18px;
-        }
-        footer p.copyright {
-            font-size: 16px;
         }
     }

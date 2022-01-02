@@ -1,263 +1,475 @@
 section.skills-container {
-  margin: 50px 100px;
+	margin: 50px 100px;
 }
 
 section.skills-container h2.title {
-  font-family: "Courgette", cursive;
-  font-size: 40px;
-  background: linear-gradient(var(--gray), var(--white));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: titleAnim 8s linear infinite 2s alternate;
+	font-family: "Courgette", cursive;
+	font-size: 40px;
+	background: linear-gradient(var(--gray), var(--white));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	animation: titleAnim 8s linear infinite 2s alternate;
 }
 
 @keyframes titleAnim {
-  25% {
-    background: linear-gradient(var(--orange), var(--yellow));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  50% {
-    background: linear-gradient(var(--orange), var(--white));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  75% {
-    background: linear-gradient(var(--blue), var(--yellow));
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-  100% {
-    background: linear-gradient(var(--blue), var(--white));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+	25% {
+		background: linear-gradient(var(--orange), var(--yellow));
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	50% {
+		background: linear-gradient(var(--orange), var(--white));
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	75% {
+		background: linear-gradient(var(--blue), var(--yellow));
+		-webkit-background-clip: text;
+		background-clip: text;
+	}
+
+	100% {
+		background: linear-gradient(var(--blue), var(--white));
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
 }
 
 div.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10px 50px;
-  padding: 30px 25px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 10px 50px;
+	padding: 10px;
 }
 
 .wrapper .card {
-  width: 20%;
-  height: 300px;
-  border-radius: 5px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
-  transition: box-shadow 0.5s;
+	width: 20%;
+	height: 300px;
+	border-radius: 5px;
+	position: relative;
+	box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.25);
+	transition: box-shadow 0.5s;
 }
 
 .wrapper .card .circle {
-  position: relative;
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  cursor: default;
+	position: relative;
+	height: 150px;
+	width: 150px;
+	margin: auto;
+	margin-top: 25px;
+	border-radius: 50%;
+	cursor: default;
 }
 
 .card .circle .box,
 .card .circle .box span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
 }
 
 .card .circle .box {
-  height: 100%;
-  width: 100%;
-  background-color: var(--white);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  transition: all 0.5s;
+	height: 100%;
+	width: 100%;
+	background-color: var(--white);
+	border-radius: 50%;
+	transform: translate(-50%, -50%) scale(0.8);
+	transition: all 0.5s;
 }
 
 .card .circle:hover .box {
-  transform: translate(-50%, -50%) scale(0.91);
+	transform: translate(-50%, -50%) scale(0.91);
 }
 
 .circle .box span {
-  font-size: 38px;
-  font-weight: 600;
-  transform: translate(-45%, -45%);
-  transition: all 0.3s;
+	font-size: 38px;
+	font-weight: 600;
+	transform: translate(-45%, -45%);
+	transition: all 0.3s;
 }
 
 .card .circle:hover .box span {
-  transform: translate(-45%, -45%) scale(1.1);
+	transform: translate(-45%, -45%) scale(1.1);
 }
 
 .card .circle .box span,
 .wrapper .card .text {
-  background: -webkit-linear-gradient(left, var(--orange), var(--yellow));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+	background: -webkit-linear-gradient(left, var(--orange), var(--yellow));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
 .card .circle:hover .box span,
-.card .circle:hover ~ .text {
-  background: -webkit-linear-gradient(var(--blue), var(--white));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.card .circle:hover~.text {
+	background: -webkit-linear-gradient(var(--blue), var(--white));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
 .card .text {
-  font-size: 25px;
-  font-weight: 600;
-  text-align: center;
+	font-size: 25px;
+	font-weight: 600;
+	margin-bottom: 35px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
 }
 
 /* PROGRAMMING SKILLS */
 
-.programming-skills {
+/* .programming-skills {
   display: none;
-}
+} */
 
 section.programming-skills .card {
-  position: relative;
+	position: relative;
 }
 
 section.programming-skills .card .text {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
-section.programming-skills .card .circle:hover ~ .text {
-  background: -webkit-linear-gradient(var(--blue) 60%, var(--white));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+section.programming-skills .card .circle:hover~.text {
+	background: -webkit-linear-gradient(var(--blue) 60%, var(--white));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
-section.programming-skills .card .circle:hover ~ .expand i {
-  color: var(--blue);
+section.programming-skills .card .circle:hover~.expand i {
+	color: var(--blue);
 }
 
 i.fas.fa-plus-circle {
-  color: var(--orange);
-  transition: color .5s;
+	color: var(--orange);
+	transition: color .5s;
 }
 
 i.fas.fa-minus-circle {
-  color: var(--blue);
-  transition: color .5s;
+	color: var(--blue);
+	transition: color .5s;
 }
 
 div.expand, div.collapse {
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0px 5px 3px;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 0px 5px 3px;
 }
 
 div.collapse {
-  display: none;
+	display: none;
 }
 
 /* PROGRAMMING SKILLS DETAILS */
 
 .container-skills-details {
-  margin: 20px 0 0 100px;
-  padding: 15px 10px;
-  display: none;
+	margin: 20px 0 0 100px;
+	padding: 15px 10px;
+	display: none;
 }
 
 .second-skills-group {
-  margin-left: 20%;
+	margin-left: 20%;
 }
 
 .card .skills {
-  display: none;
-  position: relative;
-  margin-bottom: 50px;
-  width: 250px;
+	display: none;
+	position: relative;
+	margin-bottom: 50px;
+	width: 250px;
 }
 
 .card .skills .skills-container .skills-info {
-  display: flex;
-  position: relative;
+	display: flex;
+	position: relative;
 }
 
 .card .skills .skills-container .skills-info .skills-name {
-  font-size: 16px;
-  font-weight: 600;
-  opacity: 0.9;
-  color: var(--blue);
+	font-size: 16px;
+	font-weight: 600;
+	opacity: 0.9;
+	color: var(--blue);
 }
 
 .card .skills .skills-container .skills-info .skills-percentage {
-  position: absolute;
-  right: 0%;
-  font-size: 16px;
-  color: var(--blue);
+	position: absolute;
+	right: 0%;
+	font-size: 16px;
+	color: var(--blue);
 }
 
 .card .skills .skills-container .progress-bar {
-  position: relative;
-  height: 8px;
-  margin: 5px 0 10px;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.25);
+	position: relative;
+	height: 8px;
+	margin: 5px 0 10px;
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.25);
 }
 
 .card .skills .skills-container .percentage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 8px;
-  border-radius: 10px;
-  background: linear-gradient(var(--blue), var(--white), var(--blue));
-  transition: all 3s;
-  animation: animationProgress 3s;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 8px;
+	border-radius: 10px;
+	background: linear-gradient(var(--blue), var(--white), var(--blue));
+	transition: all 3s;
+	animation: animationProgress 3s;
 }
 
 @keyframes animationProgress {
-  from {
-    width: 0;
-  }
+	from {
+		width: 0;
+	}
 }
 
 /* ANDROID DEVELOPMENT EXPAND SKILLS */
 
-.card.android-development {
-  margin: auto;
+.card.android-development,
+.card.french {
+	margin: auto;
 }
 
 .card.android-development .skills {
-  margin-bottom: 80px;
+	margin-bottom: 80px;
 }
 
 /* GAME DEVELOPMENT EXPAND SKILLS */
 
 .card.game-development .skills {
-  margin-bottom: 80px;
+	margin-bottom: 80px;
 }
 
 /* OTHER SKILLS */
 section.other-skills div.wrapper {
-  justify-content: space-around;
+	justify-content: space-around;
 }
 
-.other-skills {
+/* .other-skills {
   display: none;
+} */
+
+
+/* Responsive */
+
+@media screen and (max-width: 1024px) {
+	.wrapper .card {
+		width: 28%;
+	}
+
+	section.programming-skills .card .text {
+		margin-bottom: 30px;
+	}
+
+	/* PROGRAMMING SKILLS DETAILS */
+	.card.web-development .container-skills-details {
+		margin: 15px 0 0 15px;
+	}
+	
+	/* ANDROID SKILLS DETAILS */
+	.card.android-development .container-skills-details {
+		margin: 20px 0 0 50px;
+	}
+
+	/* GAME SKILLS DETAILS */
+	.card.game-development .container-skills-details {
+		margin: 20px 0 0 50px;
+	}
 }
 
-/* section.other-skills .card .circle:hover ~ .text {
-  background: -webkit-linear-gradient(var(--blue), var(--white));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-} */
+/* Pixel 2 XL */
+
+/* Iphone X */
+
+@media screen and (max-width: 823px) and (orientation: landscape) {
+	div.wrapper {
+		justify-content: space-around;
+	}
+
+	.wrapper .card {
+		width: 40%;
+		margin-bottom: 30px;
+	}
+
+	.wrapper .card.android-development,
+	.wrapper .card.french {
+		margin-right: 0px;
+	}
+
+	section.programming-skills .card .text {
+		margin-bottom: 30px;
+	}
+
+	/* WEB SKILLS DETAILS */
+	.card.web-development .container-skills-details {
+		overflow: auto;
+	}
+
+	.card.web-development .container-skills-details::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* GAME SKILLS DETAILS */
+	.card.game-development .container-skills-details {
+		margin: 20px 0 0 50px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	div.wrapper {
+		justify-content: space-around;
+	}
+
+	.wrapper .card {
+		width: 40%;
+		margin-bottom: 30px;
+	}
+
+	.wrapper .card.android-development,
+	.wrapper .card.french {
+		margin-right: 0px;
+	}
+
+	.wrapper .card.web-development {
+		margin-right: auto;
+	}
+
+	section.programming-skills .card .text {
+		margin-bottom: 30px;
+	}
+
+	/* SKILLS DETAILS */
+	.card .container-skills-details {
+		overflow: auto;
+	}
+
+	.card .container-skills-details::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* GAME SKILLS DETAILS */
+	.card.game-development .container-skills-details {
+		margin: 20px 0 0 50px;
+	}
+}
+
+/* Pixel 2 */
+
+/* Nexus 6 */
+
+/* Surface Duo */
+
+/* Iphone 6/7/8 Plus */
+
+@media screen and (max-width: 740px) and (orientation: landscape) {
+	.wrapper .card {
+		width: 45%;
+	}
+}
+
+/* Iphone 6/7/8 */
+
+@media screen and (max-width: 670px) and (orientation: landscape) {
+	section.skills-container {
+		margin: 50px;
+	}
+}
+
+/* Galaxy S5 */
+
+/* Galaxy Note 2/3 */
+
+/* LG Optimus L70 */
+
+/* Nexus 4/5 */
+
+@media screen and (max-width: 640px) and (orientation: landscape) {}
+
+@media screen and (max-width: 600px) {
+	section.skills-container {
+		margin: 50px 30px;
+	}
+
+	.wrapper .card {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 570px) and (orientation:landscape) {}
+
+/* Mobiles which have a different nav menu */
+
+@media screen and (max-width: 550px) {
+	.wrapper .card {
+		width: 55%;
+	}
+
+	.wrapper .card.android-development,
+	.wrapper .card.french {
+		margin-right: auto;
+	}
+
+	.wrapper .card.web-development {
+		margin-right: initial;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.wrapper .card {
+		width: 80%;
+	}
+
+	/* ANDROID SKILLS DETAILS */
+	.card.android-development .container-skills-details {
+		margin: 20px 0 0 25px;
+	}
+
+	/* GAME SKILLS DETAILS */
+	.card.game-development .container-skills-details {
+		margin: 20px 0 0 25px;
+	}
+}
+
+@media screen and (max-width: 385px) {
+	section.skills-container h2.title {
+		font-size: 35px;
+	}
+
+	.wrapper .card {
+		width: 100%;
+	}
+
+	/* SKILLS DETAILS */
+	.container-skills-details {
+		flex-direction: column;
+		max-height: 225px;
+	}
+
+	.second-skills-group {
+		margin-left: 0px;
+	}
+}
+
+@media screen and (max-width: 330px) {
+	section.skills-container h2.title {
+		font-size: 30px;
+	}
+
+	div.wrapper {
+		margin: 10px 25px;
+	}
+}

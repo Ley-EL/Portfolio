@@ -183,6 +183,9 @@ div.education-details .school-infos {
 /* Iphone X */
 
 @media screen and (max-width: 823px) and (orientation: landscape) {
+    section.profile-container {
+        margin: 50px;
+    }
 
     /* DESCRIPTION */
     section.description div.desc-container {

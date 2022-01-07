@@ -57,12 +57,11 @@ section.description div.desc-container::-webkit-scrollbar-thumb {
     background: var(--blueWOpacity);
 }
 
-div.desc-container p {
+div.desc-container div.desc-text {
     margin: 10px 15px 10px 20px;
     padding: 5px 0 0 10px;
     font-family: 'Monte Carlo', cursive;
     font-size: 19px;
-    text-indent: 7%;
     text-align: justify;
 }
 

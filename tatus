@@ -1,0 +1,53 @@
+[33mcommit 86a702e4f2c2c0e5591ddca037d79c1e7799afab[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Kendley Borno <bornokendley@gmail.com>
+Date:   Sun Jan 2 16:31:36 2022 -0500
+
+    Modification operated on certificate.css file
+
+[33mcommit 153006046683fbea220bd2441402255c5e7ee364[m
+Author: Kendley Borno <bornokendley@gmail.com>
+Date:   Sun Jan 2 16:01:57 2022 -0500
+
+    Responsive design done, first final version of website done
+
+[33mcommit 27d868cb05510c5efe560ddd0087723fb8a5f987[m
+Author: Kendley Borno <bornokendley@gmail.com>
+Date:   Sun Nov 28 05:01:02 2021 -0500
+
+    Responsive done for Home, Certificate and Profile page
+
+[33mcommit 9eaed997c162eebec53a7583ade7bf8360fcf011[m
+Author: Ley-EL <bornokendley@gmail.com>
+Date:   Wed Nov 3 02:32:40 2021 -0400
+
+    Version pc finished
+
+[33mcommit 0fe36915422cd29c80244b3b995cb43c677988bd[m
+Author: Ley-EL <bornokendley@gmail.com>
+Date:   Tue Nov 2 11:20:11 2021 -0400
+
+    New Update
+
+[33mcommit d1c7ebc926595f1aff51b84b46446b83255dc95d[m
+Author: Ley-EL <bornokendley@gmail.com>
+Date:   Tue Nov 2 11:19:42 2021 -0400
+
+    New Update
+
+[33mcommit b6f4fc117998126003ffa3747d77677c0b6a8ac7[m
+Author: Ley-EL <bornokendley@gmail.com>
+Date:   Mon Aug 16 10:52:02 2021 -0400
+
+    Remove certificate folder, delete some images, finish first version of skills page
+
+[33mcommit ceeebce8be7a20a1b874a4d6686fbed64904989e[m
+Author: Ley-EL <bornokendley@gmail.com>
+Date:   Thu Aug 12 12:07:11 2021 -0400
+
+    First version of home page finished
+
+[33mcommit 9817559edb3f65cdaecda383521ccf55ef811496[m
+Author: Kendley Borno <57776838+Ley-EL@users.noreply.github.com>
+Date:   Thu Aug 12 12:04:31 2021 -0400
+
+    Initial commit

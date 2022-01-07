@@ -8,7 +8,6 @@ const skills = document.querySelector('ul li a.skills');
 const certificates = document.querySelector('ul li a.certificates');
 const headerContainer = document.querySelector('section.top-page div.brief-presentation');
 const navContainer = document.querySelector('div.nav')
-const mediaQuery = window.matchMedia('(max-width: 550px');
 
 webDev.addEventListener('animationend', () => {
     // hide web dev text
@@ -117,6 +116,7 @@ const certificatesPos = certificates.getBoundingClientRect();
 function ShowMenu() {
     // get current icon menu position
     var menuPos = hamburgerMenu.getBoundingClientRect();
+    console.log(menuPos)
 
     // show menu items
     if (menuPos.left < homePos.left - 5) {
@@ -159,6 +159,8 @@ function HideMenu() {
 }
 
 // Responsive Design
+
+const mediaQuery = window.matchMedia("(max-width: 550px)");
 
 if (mediaQuery.matches) {
 

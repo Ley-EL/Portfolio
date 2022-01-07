@@ -36,27 +36,27 @@ $(document).ready(function () {
     // change card box shadow when hover it
     $('.card').hover(function () {
         $(this).css('box-shadow', '0px 0px 15px 1px #ff6a00, 0px 0px 15px 1px #ffff00');
-        console.log("Hover on card only")
     },
         function () {
             $(this).css('box-shadow', '0px 10px 15px rgba(0, 0, 0, 0.25)');
-            console.log("Hover off on card only")
         })
 
     // change element card box shadow when hover the circle
     function CircleHover(mainElement) {
-        $(mainElement + " .circle").hover(function () {
-            $(mainElement).css('box-shadow', '0px 0px 15px 1px #0051ff, 0px 0px 15px 1px #ffff', 'important');
-            console.log("Hover on circle that affect card")
+        $(mainElement + " .circle").hover(function (e) {
+            $(mainElement).css('box-shadow', '0px 0px 15px 1px #0051ff, 0px 0px 15px 1px #ffff');
+
             $(mainElement + " .bar").circleProgress({
                 fill: {
                     gradient: ['#0051ff98']
                 }
             })
+
+            e.stopPropagation();
         },
-            function () {
+            function (e) {
                 $(mainElement).css('box-shadow', '0px 0px 15px 1px #ff6a00, 0px 0px 15px 1px #ffff00');
-                console.log("Hover off on circle that affect card")
+
                 $(mainElement + " .bar").circleProgress({
                     fill: {
                         gradient: ['#ff6a00', "#ffff00"]
@@ -468,7 +468,6 @@ $(document).ready(function () {
     })
 
     // Responsive
-    const mediaQuery1024min = window.matchMedia('(min-width: 1024px)');
     const mediaQuery1024 = window.matchMedia('(max-width: 1024px)');
     const mediaQuery800 = window.matchMedia('(max-width: 800px)');
     const mediaQuery740 = window.matchMedia('(max-width: 740px) and (orientation: landscape)');
@@ -478,26 +477,6 @@ $(document).ready(function () {
     const mediaQuery425 = window.matchMedia('(max-width: 425px)');
     const mediaQuery385 = window.matchMedia('(max-width: 385px)');
     const mediaQuery330 = window.matchMedia('(max-width: 330px)');
-
-    if (mediaQuery1024min.matches) {
-        // handle animation when click on game dev plus icon
-        $('.game-development .expand i.fas.fa-plus-circle').click(function () {
-
-            // set game development card margin left to auto
-            setTimeout(() => {
-                $('.card.game-development').css("margin-left", "auto")
-            }, 1000);
-        })
-
-        // handle animation when click on game dev minus icon
-        $('.game-development .collapse i.fas.fa-minus-circle').click(function () {
-
-            setTimeout(() => {
-                // remove margin-left from this card
-                $('.card.game-development').css("margin-left", "");
-            }, 5500);
-        })
-    }
 
     if (mediaQuery1024.matches) {
         // handle animation when click on web dev plus icon
@@ -516,6 +495,20 @@ $(document).ready(function () {
         $('.game-development .expand i.fas.fa-plus-circle').click(function () {
 
             ExpandSkillsDetails(".card.game-development", "60%", "-70px", "7500");
+
+            // set game development card margin left to auto
+            setTimeout(() => {
+                $('.card.game-development').css("margin-left", "auto")
+            }, 1000);
+        })
+
+        // handle animation when click on game dev minus icon
+        $('.game-development .collapse i.fas.fa-minus-circle').click(function () {
+
+            setTimeout(() => {
+                // remove margin-left from this card
+                $('.card.game-development').css("margin-left", "");
+            }, 5500);
         })
 
     }
